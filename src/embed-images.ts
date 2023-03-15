@@ -30,8 +30,9 @@ async function embedBackground<T extends HTMLElement>(
     await embedProp('background-image', clonedNode, options)
   }
   if (!(await embedProp('mask', clonedNode, options))) {
-    await embedProp('mask-image', clonedNode, options)
+    await embedProp('mask-image', clonedNode, options) || await embedProp('-webkit-mask-image', clonedNode, options)
   }
+
 }
 
 async function embedImageNode<T extends HTMLElement | SVGImageElement>(
